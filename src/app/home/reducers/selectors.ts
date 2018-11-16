@@ -1,6 +1,7 @@
 import { HomeState } from './index';
 import { SearchState } from './search.state';
 import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { Product } from '../../core/models/product';
 
 /******************* Base Search State ******************/
 export const getHomeState = createFeatureSelector<HomeState>('home');
@@ -20,7 +21,7 @@ function fetchSelectedTaxonIds(state: SearchState) {
 }
 
 function fetchProductsByKeyword(state: SearchState) {
-  return state.productsByKeyword.toJS();
+  return state.productsByKeyword as unknown as Product[];
 }
 
 function fetchChildTaxons(state: SearchState) {

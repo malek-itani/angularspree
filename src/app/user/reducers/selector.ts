@@ -26,23 +26,23 @@ function getUserState(state: AppState): UserState {
  * @returns {Order[]}
  */
 const fetchUserOrders = function(state: UserState): Order[] {
-    return state.orders.toJS();
+    return state.orders;
 };
 
 const fetchUserFavoriteProducts = function(state: UserState): Product[] {
-    return state.favorite_products.toJS();
+    return state.favorite_products;
 }
 
 export function fetchUserAddresses(state: UserState): Address[] {
-    return state.userAddresses.toJS();
+    return state.userAddresses;
 }
 
 export function fetchCountries(state: UserState): Country[] {
-    return state.countries.toJS();
+    return state.countries;
 }
 
 export function fetchStates(state: UserState): CState[] {
-    return state.states.toJS();
+    return state.states;
 }
 
 // *************************** PUBLIC API's ****************************

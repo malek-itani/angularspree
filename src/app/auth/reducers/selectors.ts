@@ -18,7 +18,7 @@ const fetchCurrentUser = function (state: AuthState): User {
 }
 
 const fetchRatingCategories = function (state: AuthState) {
-    return state.ratingCategories.toJS();
+    return state.ratingCategories as unknown as Object[];
   };
 
 // *************************** PUBLIC API's ****************************

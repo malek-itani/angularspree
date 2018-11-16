@@ -1,7 +1,10 @@
+import { Product } from './../../core/models/product';
+import { Brand } from './../../core/models/brand';
 import { AppState } from './../../interfaces';
 import { ProductState } from './product-state';
 import { createSelector } from 'reselect';
-import { Map, List, fromJS } from 'immutable';
+import { Taxonomy } from '../../core/models/taxonomy';
+import { RatingOption } from '../../core/models/rating_option';
 
 // Base product state selector function
 export function getProductState(state: AppState): ProductState {
@@ -10,13 +13,13 @@ export function getProductState(state: AppState): ProductState {
 
 // ******************** Individual selectors ***************************
 export function fetchProducts(state: ProductState) {
-  const ids = state.productIds.toJS();
-  const productEntities = state.productEntities.toJS();
+  const ids = state.productIds as unknown as string[];
+  const productEntities = state.productEntities as unknown as {number: Product};
   return ids.map(id => productEntities[id]);
 }
 
 export function fetchAllTaxonomies(state: ProductState) {
-  return state.taxonomies.toJS();
+  return state.taxonomies as unknown as Taxonomy[];
 }
 
 const fetchSelectedProduct = function (state: ProductState) {
@@ -39,11 +42,11 @@ const fetchRootTaxonId = function (state: ProductState) {
 };
 
 const fetchBrands = function (state: ProductState) {
-  return state.brands.toJS();
+  return state.brands as unknown as Brand[];
 };
 
 const fetchProductRatingOptions = function (state: ProductState) {
-  return state.productRatingOptions.toJS();
+  return state.productRatingOptions as unknown as RatingOption[];
 };
 
 const fetchIsReviewSubmitted = function (state: ProductState) {

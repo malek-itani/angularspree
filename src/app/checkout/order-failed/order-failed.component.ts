@@ -1,4 +1,4 @@
-import { getlayoutStateJS } from './../../layout/reducers/layout.selector';
+import { getLayoutState } from './../../layout/reducers/layout.selector';
 import { AppState } from './../../interfaces';
 import { Store } from '@ngrx/store';
 import { LayoutState } from './../../layout/reducers/layout.state';
@@ -41,7 +41,7 @@ export class OrderFailedComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.layoutState$ = this.store.select(getlayoutStateJS);
+    this.layoutState$ = this.store.select(getLayoutState);
     this.userService
       .getOrderDetail(this.queryParams.orderReferance)
       .subscribe(order => {

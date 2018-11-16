@@ -1,6 +1,6 @@
 import { LoadLayouts } from './layout/actions/layout.actions';
 import { LayoutState } from './layout/reducers/layout.state';
-import { getlayoutStateJS } from './layout/reducers/layout.selector';
+import { getLayoutState } from './layout/reducers/layout.selector';
 import { environment } from './../environments/environment';
 import { filter } from 'rxjs/operators';
 import { getAuthStatus } from './auth/reducers/selectors';
@@ -81,7 +81,7 @@ export class AppComponent implements OnInit, OnDestroy {
       })
     );
 
-    this.layoutState$ = this.store.select(getlayoutStateJS);
+    this.layoutState$ = this.store.select(getLayoutState);
 
     this.addFaviconIcon();
     this.addConstMetaInfo();
