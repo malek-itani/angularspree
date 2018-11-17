@@ -37,7 +37,8 @@ export class ProductReviewComponent implements OnInit, OnDestroy {
       this.store.select(getAuthStatus).subscribe(auth => { this.isAuthenticated = auth }),
       this.store.select(getRatingCategories).subscribe(ratingCategories => {
         if (ratingCategories.length) {
-          this.store.dispatch(this.productAction.getRatingsOptions(ratingCategories.product));
+          // TODO @gopal fix this
+          // this.store.dispatch(this.productAction.getRatingsOptions(ratingCategories.product));
         }
       }),
     );

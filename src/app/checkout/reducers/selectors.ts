@@ -1,3 +1,4 @@
+import { LineItem } from './../../core/models/line_item';
 import { CheckoutState } from './checkout.state';
 import { AppState } from './../../interfaces';
 import { createSelector } from 'reselect';
@@ -9,7 +10,7 @@ export function getCheckoutState(state: AppState): CheckoutState {
 
 // ******************** Individual selectors ***************************
 export function fetchLineItems(state: CheckoutState) {
-  return state.lineItems.toJS();
+  return state.lineItems as unknown as LineItem[];
   // const ids = state.lineItemIds.toJS();
   // const lineItemEntitites = state.lineItemEntities.toJS();
   // return ids.map(id => lineItemEntitites[id]);
@@ -28,11 +29,11 @@ export function fetchTotalCartValue(state: CheckoutState) {
 }
 
 export function fetchShipAddress(state: CheckoutState) {
-  return state.shipAddress ? state.shipAddress.toJS() : state.shipAddress;
+  return state.shipAddress ? state.shipAddress : state.shipAddress;
 }
 
 export function fetchBillAddress(state: CheckoutState) {
-  return state.billAddress ? state.billAddress.toJS() : state.billAddress;
+  return state.billAddress ? state.billAddress : state.billAddress;
 }
 
 export function fetchOrderState(state: CheckoutState) {
